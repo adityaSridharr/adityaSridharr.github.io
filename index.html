@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Sridhar | ML Engineer & Researcher</title>
+    <style>
+        :root {
+            --primary: #046B99;
+            --secondary: #0A2342;
+            --accent: #E4572E;
+            --light: #F9F9F9;
+            --dark: #222222;
+            --success: #2E8B57;
+            --gradient-start: #046B99;
+            --gradient-end: #0A2342;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ffffff, #e6f2ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 1rem auto 0;
+            padding: 0 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin: 4rem 0;
+        }
+        
+        section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .bio-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .bio-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .bio-intro {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .bio-experience {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            height: 400px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-color: var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 0 1rem;
+            text-align: center;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+            height: calc(100% - 200px);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-description {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .project-link {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .project-link:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .links-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark);
+            transition: transform 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+        
+        .social-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            font-size: 2rem;
+        }
+        
+        .social-name {
+            font-weight: 500;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .background-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23F9F9F9' fill-opacity='1' d='M0,224L60,202.7C120,181,240,139,360,138.7C480,139,600,181,720,192C840,203,960,181,1080,165.3C1200,149,1320,139,1380,133.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+        }
+        
+        @media (max-width: 768px) {
+            .bio-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .links-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 3rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero-container">
+            <h1 class="hero-title">Aditya Sridhar</h1>
+            <p class="hero-subtitle">ML Engineer & Researcher</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#bio">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#links">Connect</a></li>
+            </ul>
+        </nav>
+        <div class="background-wave"></div>
+    </header>
+
+    <div class="container">
+        <section id="bio">
+            <h2>About Me</h2>
+            <div class="bio-container">
+                <div class="bio-intro bio-text">
+                    <p>
+                        Hey there! I'm Aditya Sridhar, an ML engineer wrapping up my B.Tech in Computer Science & Engineering at IIT Hyderabad. I'm deeply passionate about Machine Learning research, with particular interests in Computer Vision and Natural Language Processing.
+                    </p>
+                    <p>
+                        Recently, I've been diving into Reinforcement Learning—exploring how agents can learn optimal behaviors through interaction with their environment. What really drives me is the thrill of experimentation—setting up hypotheses, designing tests, and uncovering insights from unexpected results.
+                    </p>
+                    <p>
+                        I love the problem-solving aspect of coding, whether I'm working with Python, C++, Java, or SQL. I'm all about making high-performance computing solutions work in real-world scenarios.
+                    </p>
+                </div>
+                
+                <div class="bio-experience bio-text">
+                    <p>
+                        Currently, I'm heading up AI Engineering at Valet Network, where I've built predictive models that hit 95% simulation accuracy and optimization algorithms that boosted efficiency.
+                    </p>
+                    <p>
+                        Before that, I cut my teeth at Jaguar Land Rover and HeyDaw Technologies, automating workflows and fine-tuning LLMs. I'm particularly proud of my research on attention-guided CNNs for music classification and making models more robust against adversarial attacks—work that helped my team win the JLR Global Hackathon against 250+ other teams!
+                    </p>
+                    <p>
+                        At the end of the day, I'm just a problem-solver who loves combining statistical theory with practical engineering to build AI systems that are not just powerful but also make sense for the real world.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-title">JLR Global Hackathon</div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Led a cross-functional team in developing an intelligent talent allocation system that won the global competition. Created a skill-matching algorithm with 95% accuracy that balanced skills, learning opportunities, and deadlines.
+                        </p>
+                        <a href="jlr-hackathon.html" class="project-link">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-title">Attention-Guided Music Genre Classification</div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Published research combining my passion for music and ML. Developed an attention-based CNN classifier that achieved state-of-the-art accuracy in music genre classification with innovative explainability techniques.
+                        </p>
+                        <a href="music-classification.html" class="project-link">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-title">SPECTRA Framework</div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Created an innovative explainable AI framework that improved model interpretability while boosting accuracy by 15%. Introduced novel metrics for adversarial vulnerability and techniques for robust model training.
+                        </p>
+                        <a href="spectra-framework.html" class="project-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="links">
+            <h2>Connect With Me</h2>
+            <div class="links-container">
+                <a href="https://www.linkedin.com/in/aditya-sridharr/" class="social-link" target="_blank">
+                    <div class="social-icon">in</div>
+                    <span class="social-name">LinkedIn</span>
+                </a>
+                
+                <a href="https://scholar.google.com/citations?user=Ds6VGaIAAAAJ&hl=en" class="social-link" target="_blank">
+                    <div class="social-icon">🎓</div>
+                    <span class="social-name">Google Scholar</span>
+                </a>
+                
+                <a href="https://github.com/adityaSridharr" class="social-link" target="_blank">
+                    <div class="social-icon">
+                        <svg width="32" height="32" viewBox="0 0 16 16">
+                            <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                        </svg>
+                    </div>
+                    <span class="social-name">GitHub</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Aditya Sridhar | ML Engineer & Researcher</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

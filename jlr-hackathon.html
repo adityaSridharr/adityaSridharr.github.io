@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLR Global Hackathon | Portfolio</title>
+    <style>
+        :root {
+            --primary: #046B99;
+            --secondary: #0A2342;
+            --accent: #E4572E;
+            --light: #F9F9F9;
+            --dark: #222222;
+            --success: #2E8B57;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1.5rem;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 3rem 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            background-color: #ddd;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .hero-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .hero-image-text {
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .overview {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .achievement-card .card-header {
+            background-color: var(--success);
+        }
+        
+        .tech-card .card-header {
+            background-color: var(--secondary);
+        }
+        
+        .challenge-card .card-header {
+            background-color: var(--accent);
+        }
+        
+        ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .process-section {
+            margin-top: 3rem;
+        }
+        
+        .process-timeline {
+            margin-top: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .skills-section {
+            margin-top: 3rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .quote-section {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem;
+            margin-top: 3rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .quote-author {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-image {
+                height: 200px;
+            }
+            
+            .hero-image-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>JLR Global Hackathon</h1>
+            <p>Intelligent Talent Allocation System</p>
+            <a href="index.html" class="nav-link">← Back to Portfolio</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero-section">
+            <div class="hero-image">
+                <div class="hero-image-overlay">
+                    <div class="hero-image-text">Innovation in Skill Matching and Team Optimization</div>
+                </div>
+            </div>
+            <p class="overview">
+                During my internship at Jaguar Land Rover, I led a diverse team of full-time professionals in a high-pressure 36-hour hackathon. We developed an innovative NLP-powered talent allocation system that transcended the basic "Skill Matching" problem statement by incorporating learning opportunities and deadline optimization. Our solution achieved a remarkable 95% accuracy in task allocation, ultimately winning the global competition.
+            </p>
+        </section>
+
+        <div class="grid-container">
+            <div class="card achievement-card">
+                <div class="card-header">Key Achievements</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Won the global hackathon against teams from multiple countries and divisions</li>
+                        <li>Achieved 95% accuracy with our skill-matching algorithm using NLP techniques</li>
+                        <li>Led a team of full-time professionals as the only intern</li>
+                        <li>Successfully presented our solution to international judges</li>
+                        <li>Designed and implemented a production-ready system in just 36 hours</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card tech-card">
+                <div class="card-header">Technologies Used</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Natural Language Processing (NLP) for skill extraction and analysis</li>
+                        <li>Pre-trained transformer embeddings to balance accuracy and computational feasibility</li>
+                        <li>Classification networks for efficient skill matching</li>
+                        <li>MLOps pipelines for robust model deployment</li>
+                        <li>Modern UI/UX design for intuitive talent management</li>
+                        <li>Optimization algorithms for balancing skill matching with learning opportunities</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card challenge-card">
+                <div class="card-header">Challenges Overcome</div>
+                <div class="card-body">
+                    <ul>
+                        <li>36-hour time constraint requiring rapid ideation and development</li>
+                        <li>Computational limitations making full LLM training impractical</li>
+                        <li>Complex multi-objective optimization problem (skills, learning, deadlines)</li>
+                        <li>Need for production-quality documentation and code in a hackathon setting</li>
+                        <li>Creating an intuitive interface for complex allocation decisions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <section class="process-section">
+            <h2>Development Process</h2>
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <h3>Problem Reframing</h3>
+                    <p>Instead of treating the challenge as just skill matching, we expanded the scope to create an intelligent talent allocation system that balanced three key factors: skills, learning opportunities, and project deadlines.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Technical Pivot</h3>
+                    <p>Facing computational constraints in the 36-hour window, we strategically pivoted from training full LLMs to implementing a classification network using pre-trained transformer embeddings, significantly reducing computational requirements while maintaining high accuracy.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Algorithm Development</h3>
+                    <p>Developed optimization algorithms that could weigh different factors in the allocation process, allowing HR managers to prioritize immediate skill matches or long-term employee development based on organizational needs.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>UI Design and Implementation</h3>
+                    <p>Created an intuitive interface for HR managers to visualize matching results, adjust parameters, and gain insights into allocation decisions.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Presentation and Victory</h3>
+                    <p>Successfully presented our solution to international judges, demonstrating both technical excellence and business value, ultimately securing the win against global competition.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <h2>Skills Demonstrated</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Leadership</span>
+                <span class="skill-tag">Natural Language Processing</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Problem Solving</span>
+                <span class="skill-tag">Strategic Thinking</span>
+                <span class="skill-tag">Performance Under Pressure</span>
+                <span class="skill-tag">Team Collaboration</span>
+                <span class="skill-tag">Technical Communication</span>
+                <span class="skill-tag">UI/UX Design</span>
+                <span class="skill-tag">Project Management</span>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <p class="quote-text">"Winning this hackathon was a testament to my ability to think on my feet, lead a team under pressure, and create impactful solutions."</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>Portfolio Project | JLR Global Hackathon | © 2025</p>
+    </footer>
+
+    <script>
+        // You can add any JavaScript functionality here
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded successfully');
+        });
+    </script>
+</body>
+</html>

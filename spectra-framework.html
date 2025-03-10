@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLR Global Hackathon | Portfolio</title>
+    <style>
+        :root {
+            --primary: #046B99;
+            --secondary: #0A2342;
+            --accent: #E4572E;
+            --light: #F9F9F9;
+            --dark: #222222;
+            --success: #2E8B57;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1.5rem;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 3rem 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            background-color: #ddd;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .hero-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .hero-image-text {
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .overview {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .achievement-card .card-header {
+            background-color: var(--success);
+        }
+        
+        .tech-card .card-header {
+            background-color: var(--secondary);
+        }
+        
+        .challenge-card .card-header {
+            background-color: var(--accent);
+        }
+        
+        ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .process-section {
+            margin-top: 3rem;
+        }
+        
+        .process-timeline {
+            margin-top: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .skills-section {
+            margin-top: 3rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .quote-section {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem;
+            margin-top: 3rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .quote-author {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-image {
+                height: 200px;
+            }
+            
+            .hero-image-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>SPECTRA</h1>
+            <p>Explainable AI Framework for Black-Box Models</p>
+            <a href="index.html" class="nav-link">← Back to Portfolio</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero-section">
+            <div class="hero-image">
+                <div class="hero-image-overlay">
+                    <div class="hero-image-text">Unveiling the Inner Workings of Black-Box Models</div>
+                </div>
+            </div>
+            <p class="overview">
+                SPECTRA is an innovative framework I designed for my Explainability in ML course to uncover the inner workings of black-box models. Driven by my curiosity about how image classifiers "understand" images, this framework generates semantically faithful counterfactuals by perturbing latent space activations. The approach significantly improves model interpretability while increasing prediction accuracy by over 15% and introducing novel metrics for measuring adversarial vulnerability.
+            </p>
+        </section>
+
+        <div class="grid-container">
+            <div class="card achievement-card">
+                <div class="card-header">Key Achievements</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Improved model prediction accuracy by over 15% through enhanced interpretability</li>
+                        <li>Developed semantically faithful counterfactual generation technique</li>
+                        <li>Introduced novel stability regularization to bolster classifier resilience against adversarial attacks</li>
+                        <li>Created the 'SPECTRA Attackability' metric to quantify adversarial vulnerability</li>
+                        <li>Established new methodologies for evaluating model robustness</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card tech-card">
+                <div class="card-header">Technologies Used</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Latent space manipulation techniques</li>
+                        <li>Counterfactual explanation generation</li>
+                        <li>Adversarial training and testing frameworks</li>
+                        <li>Deep neural network architecture design</li>
+                        <li>Image classification and computer vision models</li>
+                        <li>Regularization methods for model robustness</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card challenge-card">
+                <div class="card-header">Challenges Overcome</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Developing methods to interpret complex black-box image classifiers</li>
+                        <li>Creating counterfactuals that maintain semantic fidelity</li>
+                        <li>Balancing model performance with interpretability</li>
+                        <li>Quantifying adversarial vulnerability in meaningful ways</li>
+                        <li>Designing regularization techniques that increase robustness without degrading performance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <section class="process-section">
+            <h2>Research Methodology</h2>
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <h3>Problem Identification</h3>
+                    <p>Recognized the critical gap in understanding how black-box models, particularly image classifiers, make decisions and the need for greater transparency in AI systems.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Framework Development</h3>
+                    <p>Designed the SPECTRA framework to generate semantically faithful counterfactuals by systematically perturbing latent space activations, providing insights into model decision boundaries.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Stability Enhancement</h3>
+                    <p>Introduced a novel stability regularization term specifically engineered to bolster classifier resilience against adversarial attacks while maintaining performance on legitimate inputs.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Metric Creation</h3>
+                    <p>Developed the 'SPECTRA Attackability' metric to provide a standardized way of quantifying a model's vulnerability to adversarial examples, filling a significant gap in model evaluation techniques.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Validation & Results</h3>
+                    <p>Demonstrated significant improvements in both model interpretability and performance, achieving over 15% increase in prediction accuracy while simultaneously enhancing model robustness.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <h2>Skills Demonstrated</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Explainable AI</span>
+                <span class="skill-tag">Computer Vision</span>
+                <span class="skill-tag">Adversarial Machine Learning</span>
+                <span class="skill-tag">Deep Learning</span>
+                <span class="skill-tag">Latent Space Manipulation</span>
+                <span class="skill-tag">Model Regularization</span>
+                <span class="skill-tag">Neural Network Architecture</span>
+                <span class="skill-tag">Framework Design</span>
+                <span class="skill-tag">Research Methodology</span>
+                <span class="skill-tag">Technical Innovation</span>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <p class="quote-text">"What excites me most is how this approach could be expanded to address challenges in AI fairness, security, and beyond, showcasing the vast potential of explainability to shape the future of AI systems."</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>Portfolio Project | SPECTRA Framework | © 2025</p>
+    </footer>
+
+    <script>
+        // You can add any JavaScript functionality here
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded successfully');
+        });
+    </script>
+</body>
+</html>

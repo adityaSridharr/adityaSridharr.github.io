@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLR Global Hackathon | Portfolio</title>
+    <style>
+        :root {
+            --primary: #046B99;
+            --secondary: #0A2342;
+            --accent: #E4572E;
+            --light: #F9F9F9;
+            --dark: #222222;
+            --success: #2E8B57;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1.5rem;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 3rem 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            background-color: #ddd;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .hero-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .hero-image-text {
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .overview {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .achievement-card .card-header {
+            background-color: var(--success);
+        }
+        
+        .tech-card .card-header {
+            background-color: var(--secondary);
+        }
+        
+        .challenge-card .card-header {
+            background-color: var(--accent);
+        }
+        
+        ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .process-section {
+            margin-top: 3rem;
+        }
+        
+        .process-timeline {
+            margin-top: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .skills-section {
+            margin-top: 3rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .quote-section {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem;
+            margin-top: 3rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .quote-author {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-image {
+                height: 200px;
+            }
+            
+            .hero-image-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Attention-Guided Music Genre Classification</h1>
+            <p>Machine Learning for Music Analysis</p>
+            <a href="index.html" class="nav-link">← Back to Portfolio</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero-section">
+            <div class="hero-image">
+                <div class="hero-image-overlay">
+                    <div class="hero-image-text">Fusion of Machine Learning and Musical Expertise</div>
+                </div>
+            </div>
+            <p class="overview">
+                My publication, <em>Attention-Guided Spectrogram Sequence Modeling with CNNs for Music Genre Classification</em>, represents the intersection of my two greatest passions: technology and music. As a professional Indian classical musician, I developed an attention-based classifier that achieved state-of-the-art accuracy in music genre classification. This project marked my first deep dive into machine learning and provided fascinating insights into genre-specific patterns and temporal features in music.
+            </p>
+        </section>
+
+        <div class="grid-container">
+            <div class="card achievement-card">
+                <div class="card-header">Key Achievements</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Published research paper on arxiv.org showcasing novel attention mechanisms for music analysis</li>
+                        <li>Achieved state-of-the-art accuracy in genre classification using semi-supervised learning</li>
+                        <li>Successfully integrated deep embeddings to overcome data limitations</li>
+                        <li>Created interpretable visualizations of how the model "hears" different genres</li>
+                        <li>Developed methods to identify which temporal parts of music are most indicative of genre</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card tech-card">
+                <div class="card-header">Technologies Used</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Convolutional Neural Networks (CNNs) for spectrogram analysis</li>
+                        <li>Attention mechanisms to highlight genre-specific features</li>
+                        <li>Semi-supervised learning techniques to overcome limited labeled data</li>
+                        <li>Deep neural embeddings for advanced feature extraction</li>
+                        <li>Spectrogram sequence modeling for temporal music analysis</li>
+                        <li>Visualization techniques for model interpretability</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card challenge-card">
+                <div class="card-header">Challenges Overcome</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Creating an explainable model that avoids "black-box" decision making</li>
+                        <li>Developing techniques to understand which parts of music influence classification</li>
+                        <li>Working with limited labeled music data while maintaining accuracy</li>
+                        <li>Balancing computational efficiency with model performance</li>
+                        <li>Translating musical knowledge into machine learning architecture design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <section class="process-section">
+            <h2>Research Approach</h2>
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <h3>Motivation & Problem Framing</h3>
+                    <p>Inspired by my background as a professional Indian classical musician, I sought to understand if machines could recognize patterns in music the way humans do, moving beyond treating genre classification as a simple classification problem.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Innovation in Methodology</h3>
+                    <p>Introduced attention mechanisms to pinpoint which parts of a spectrogram were most important for genre classification, allowing the model to focus on the most distinctive temporal and frequency features.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Addressing Explainability</h3>
+                    <p>Tackled the challenge of explainability by developing techniques to visualize and interpret the model's decisions, making it possible to understand why certain segments of music were classified into specific genres.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Data Limitation Solutions</h3>
+                    <p>Implemented semi-supervised learning and deep embeddings to overcome the challenge of limited labeled music data, efficiently leveraging both labeled and unlabeled examples.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Publication & Impact</h3>
+                    <p>Published findings on arxiv.org, contributing new insights to the field of music information retrieval and demonstrating the potential of combining machine learning with domain expertise in music.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <h2>Skills Demonstrated</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Deep Learning</span>
+                <span class="skill-tag">Music Analysis</span>
+                <span class="skill-tag">Research</span>
+                <span class="skill-tag">Attention Mechanisms</span>
+                <span class="skill-tag">Explainable AI</span>
+                <span class="skill-tag">CNN Architecture</span>
+                <span class="skill-tag">Feature Engineering</span>
+                <span class="skill-tag">Semi-supervised Learning</span>
+                <span class="skill-tag">Academic Writing</span>
+                <span class="skill-tag">Signal Processing</span>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <p class="quote-text">"This project not only deepened my technical expertise but also fueled my insatiable curiosity to explore the potential of ML further in the realm of music."</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>Portfolio Project | Music Genre Classification | © 2025</p>
+    </footer>
+
+    <script>
+        // You can add any JavaScript functionality here
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded successfully');
+        });
+    </script>
+</body>
+</html>
