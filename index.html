@@ -166,6 +166,25 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
+
+        .resume-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .resume-button:hover {
+            background-color: #d13e1a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
         
         .projects-grid {
             display: grid;
@@ -370,6 +389,7 @@
             <div class="hero-text">
                 <h1 class="hero-title">Aditya Sridhar</h1>
                 <p class="hero-subtitle">ML Engineer & Researcher</p>
+                <a href="resume.pdf" class="resume-button" download="Aditya_Sridhar_Resume.pdf">Download Resume</a>
             </div>
         </div>
         <nav>
