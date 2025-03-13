@@ -181,7 +181,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            height: 400px;
+            height: 450px;
             cursor: pointer;
         }
         
@@ -226,9 +226,12 @@
         
         .project-content {
             padding: 1.5rem;
-            height: calc(100% - 200px);
+            height: auto;
+            min-height: calc(100% - 200px);
             display: flex;
             flex-direction: column;
+            position: relative;
+            padding-bottom: 4rem; /* Add space for the button at bottom */
         }
         
         .project-description {
@@ -241,7 +244,7 @@
             display: flex;
             justify-content: center;
             position: absolute;
-            bottom: 1.5rem;
+            bottom: 1rem;
             left: 0;
             padding: 0 1.5rem;
         }
@@ -385,25 +388,25 @@
             <div class="bio-container">
                 <div class="bio-intro bio-text">
                     <p>
-                        Hey there! I'm Aditya Sridhar, an ML engineer wrapping up my B.Tech in Computer Science & Engineering at IIT Hyderabad. I'm deeply passionate about Machine Learning research, with particular interests in Computer Vision and Natural Language Processing.
+                        Hey there! I'm Aditya Sridhar, an ML engineer wrapping up my B.Tech in Computer Science & Engineering at the Indian Institute of Technology, Hyderabad. I'm extremely passionate about Machine Learning research and engineering, with particular interests in Computer Vision and Natural Language Processing.
                     </p>
                     <p>
-                        Recently, I've been diving into Reinforcement Learning—exploring how agents can learn optimal behaviors through interaction with their environment. What really drives me is the thrill of experimentation—setting up hypotheses, designing tests, and uncovering insights from unexpected results.
+                        Recently, I've been diving into RL and trying to document my journey of learning ML from scratch. What really drives me is the thrill of experimentation—setting up hypotheses, designing tests, and uncovering insights from unexpected results.
                     </p>
                     <p>
-                        I love the problem-solving aspect of coding, whether I'm working with Python, C++, Java, or SQL. I'm all about making high-performance computing solutions work in real-world scenarios.
+                        I love the problem-solving aspect of coding, whether I'm working with Python, C++, or even SQL. I thrive at the intersection of theory and engineering, bringing cutting-edge ML research into practical deployment. 
                     </p>
                 </div>
                 
                 <div class="bio-experience bio-text">
                     <p>
-                        Currently, I'm heading up AI Engineering at Valet Network, where I've built predictive models that hit 95% simulation accuracy and optimization algorithms that boosted efficiency.
+                        Currently, I lead AI Engineering at Valet Network Inc., where our team is building high-performance ML systems for real-time predictions and optimization. Our models hit 95% simulation accuracy, and our algorithms boost operational efficiency at scale. (That’s all I can share for now unfortunately.)
                     </p>
                     <p>
-                        Before that, I cut my teeth at Jaguar Land Rover and HeyDaw Technologies, automating workflows and fine-tuning LLMs. I'm particularly proud of my research on attention-guided CNNs for music classification and making models more robust against adversarial attacks—work that helped my team win the JLR Global Hackathon against 250+ other teams!
+                        Before this, I was a Software Developer Intern at Jaguar Land Rover, where I automated workflows, fine-tuned LLMs, and built AI-driven solutions that cut manual effort by 35x. Prior to that, I was the Chief Product Officer at HeyDaw, where I led an 8-member team in developing and deploying an NLP-powered music production bot, improving response accuracy by 25%.
                     </p>
                     <p>
-                        At the end of the day, I'm just a problem-solver who loves combining statistical theory with practical engineering to build AI systems that are not just powerful but also make sense for the real world.
+                        At the end of the day, I thrive on solving hard problems and making AI systems actually work in production—whether that’s optimizing inference, automating ML pipelines, or designing intelligent models that drive real impact.
                     </p>
                 </div>
             </div>
@@ -415,14 +418,14 @@
                 <div class="project-card">
                     <a href="jlr-hackathon.html">
                         <div class="project-image">
-                            <img src="project_1.jpeg" alt="JLR Global Hackathon">
+                            <img src="project_1.jpeg" alt="Jaguar Land Rover Global 36-Hour Hackathon">
                             <div class="project-overlay">
-                                <div class="project-title">JLR Global Hackathon</div>
+                                <div class="project-title">Jaguar Land Rover Global 36-Hour Hackathon</div>
                             </div>
                         </div>
                         <div class="project-content">
                             <p class="project-description">
-                                Led a cross-functional team in developing an intelligent talent allocation system that won the global competition. Created a skill-matching algorithm with 95% accuracy that balanced skills, learning opportunities, and deadlines.
+                                Led a cross-functional team in developing an intelligent talent allocation system that won a global level 36-hour hackathon. Created a skill-matching and project allocation algorithm with 95% accuracy that balanced skills, learning opportunities of team members, and deadlines.
                             </p>
                             <div class="project-link-wrapper">
                                 <span class="project-link">View Project</span>
@@ -434,14 +437,14 @@
                 <div class="project-card">
                     <a href="music-classification.html">
                         <div class="project-image">
-                            <img src="project_2.jpeg" alt="Attention-Guided Music Genre Classification">
+                            <img src="project_2.jpeg" alt="Attention-Guided Temporal Significance in Music Genre Classification ">
                             <div class="project-overlay">
-                                <div class="project-title">Attention-Guided Music Genre Classification</div>
+                                <div class="project-title">Attention-Guided Temporal Significance in Music Genre Classification </div>
                             </div>
                         </div>
                         <div class="project-content">
                             <p class="project-description">
-                                Published research combining my passion for music and ML. Developed an attention-based CNN classifier that achieved state-of-the-art accuracy in music genre classification with innovative explainability techniques.
+                                Published research in music genre analysis and classification combining my passion for music and ML. Developed an attention-based CNN classifier that achieved state-of-the-art accuracy in Music Genre Classification with novel explainability techniques.
                             </p>
                             <div class="project-link-wrapper">
                                 <span class="project-link">View Project</span>
@@ -453,14 +456,14 @@
                 <div class="project-card">
                     <a href="spectra-framework.html">
                         <div class="project-image">
-                            <img src="project_3.jpeg" alt="SPECTRA Framework">
+                            <img src="project_3.jpeg" alt="Semantic Concept Perturbations for Explainable and Robust Classifiers">
                             <div class="project-overlay">
-                                <div class="project-title">SPECTRA Framework</div>
+                                <div class="project-title">Semantic Concept Perturbations for Explainable and Robust Classifiers</div>
                             </div>
                         </div>
                         <div class="project-content">
                             <p class="project-description">
-                                Created an innovative explainable AI framework that improved model interpretability while boosting accuracy by 15%. Introduced novel metrics for adversarial vulnerability and techniques for robust model training.
+                                Created an innovative explainable AI framework that creates counterfactual images by altering (a) given concept(/s) or feature(/s) of an image. The framework improved model interpretability while boosting accuracy by 15%. Introduced novel metrics for adversarial vulnerability and techniques for robust model training.
                             </p>
                             <div class="project-link-wrapper">
                                 <span class="project-link">View Project</span>
