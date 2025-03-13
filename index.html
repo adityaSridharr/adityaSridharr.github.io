@@ -41,10 +41,27 @@
             margin: 0 auto;
             padding: 2rem;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
-            text-align: center;
+            text-align: left;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            margin-bottom: 1.5rem;
+            object-fit: cover;
         }
         
         .hero-title {
@@ -84,6 +101,7 @@
             padding: 0.5rem 1rem;
             border-radius: 4px;
             transition: all 0.3s ease;
+            display: inline-block;
         }
         
         nav a:hover {
@@ -99,6 +117,8 @@
         
         section {
             margin: 4rem 0;
+            padding-top: 60px;
+            margin-top: -60px;
         }
         
         section h2 {
@@ -162,6 +182,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             height: 400px;
+            cursor: pointer;
         }
         
         .project-card:hover {
@@ -175,6 +196,12 @@
             background-color: var(--secondary);
             position: relative;
             overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .project-overlay {
@@ -209,6 +236,16 @@
             flex-grow: 1;
         }
         
+        .project-link-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            bottom: 1.5rem;
+            left: 0;
+            padding: 0 1.5rem;
+        }
+        
         .project-link {
             display: inline-block;
             background-color: var(--primary);
@@ -219,11 +256,19 @@
             font-weight: 500;
             transition: all 0.3s ease;
             text-align: center;
+            width: 100%;
         }
         
         .project-link:hover {
             background-color: var(--secondary);
             transform: translateY(-2px);
+        }
+        
+        .project-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
         }
         
         .links-container {
@@ -303,14 +348,26 @@
             .hero-subtitle {
                 font-size: 1.2rem;
             }
+
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="hero-container">
-            <h1 class="hero-title">Aditya Sridhar</h1>
-            <p class="hero-subtitle">ML Engineer & Researcher</p>
+            <img src="profile-photo.jpeg" alt="Aditya Sridhar" class="profile-photo">
+            <div class="hero-text">
+                <h1 class="hero-title">Aditya Sridhar</h1>
+                <p class="hero-subtitle">ML Engineer & Researcher</p>
+            </div>
         </div>
         <nav>
             <ul>
@@ -356,45 +413,60 @@
             <h2>Featured Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-title">JLR Global Hackathon</div>
+                    <a href="jlr-hackathon.html">
+                        <div class="project-image">
+                            <img src="project_1.jpeg" alt="JLR Global Hackathon">
+                            <div class="project-overlay">
+                                <div class="project-title">JLR Global Hackathon</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Led a cross-functional team in developing an intelligent talent allocation system that won the global competition. Created a skill-matching algorithm with 95% accuracy that balanced skills, learning opportunities, and deadlines.
-                        </p>
-                        <a href="jlr-hackathon.html" class="project-link">View Project</a>
-                    </div>
+                        <div class="project-content">
+                            <p class="project-description">
+                                Led a cross-functional team in developing an intelligent talent allocation system that won the global competition. Created a skill-matching algorithm with 95% accuracy that balanced skills, learning opportunities, and deadlines.
+                            </p>
+                            <div class="project-link-wrapper">
+                                <span class="project-link">View Project</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-title">Attention-Guided Music Genre Classification</div>
+                    <a href="music-classification.html">
+                        <div class="project-image">
+                            <img src="project_2.jpeg" alt="Attention-Guided Music Genre Classification">
+                            <div class="project-overlay">
+                                <div class="project-title">Attention-Guided Music Genre Classification</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Published research combining my passion for music and ML. Developed an attention-based CNN classifier that achieved state-of-the-art accuracy in music genre classification with innovative explainability techniques.
-                        </p>
-                        <a href="music-classification.html" class="project-link">View Project</a>
-                    </div>
+                        <div class="project-content">
+                            <p class="project-description">
+                                Published research combining my passion for music and ML. Developed an attention-based CNN classifier that achieved state-of-the-art accuracy in music genre classification with innovative explainability techniques.
+                            </p>
+                            <div class="project-link-wrapper">
+                                <span class="project-link">View Project</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-title">SPECTRA Framework</div>
+                    <a href="spectra-framework.html">
+                        <div class="project-image">
+                            <img src="project_3.jpeg" alt="SPECTRA Framework">
+                            <div class="project-overlay">
+                                <div class="project-title">SPECTRA Framework</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Created an innovative explainable AI framework that improved model interpretability while boosting accuracy by 15%. Introduced novel metrics for adversarial vulnerability and techniques for robust model training.
-                        </p>
-                        <a href="spectra-framework.html" class="project-link">View Project</a>
-                    </div>
+                        <div class="project-content">
+                            <p class="project-description">
+                                Created an innovative explainable AI framework that improved model interpretability while boosting accuracy by 15%. Introduced novel metrics for adversarial vulnerability and techniques for robust model training.
+                            </p>
+                            <div class="project-link-wrapper">
+                                <span class="project-link">View Project</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -438,9 +510,20 @@
                     const targetElement = document.querySelector(targetId);
                     
                     if (targetElement) {
-                        targetElement.scrollIntoView({
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 60,
                             behavior: 'smooth'
                         });
+                    }
+                });
+            });
+
+            // Make entire project card clickable
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    const link = this.querySelector('a').getAttribute('href');
+                    if (link) {
+                        window.location.href = link;
                     }
                 });
             });
