@@ -92,6 +92,11 @@
             gap: 2rem;
             list-style: none;
         }
+
+        nav ul li {
+            list-style: none;
+            display: block; /* Added */
+        }
         
         nav a {
             color: white;
@@ -101,7 +106,9 @@
             padding: 0.5rem 1rem;
             border-radius: 4px;
             transition: all 0.3s ease;
-            display: inline-block;
+            display: block; /* Changed from inline-block to block */
+            width: 100%; /* Added to make entire area clickable */
+            height: 100%; /* Added to make entire area clickable */
         }
         
         nav a:hover {
