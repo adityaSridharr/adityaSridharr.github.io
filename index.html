@@ -91,11 +91,13 @@
             justify-content: center;
             gap: 2rem;
             list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         nav ul li {
-            list-style: none;
-            display: block; /* Added */
+            display: inline-flex; /* Better for horizontal nav items */
+            align-items: flex-start;  /* Vertically center the <a> inside */
         }
         
         nav a {
@@ -106,9 +108,7 @@
             padding: 0.5rem 1rem;
             border-radius: 4px;
             transition: all 0.3s ease;
-            display: block; /* Changed from inline-block to block */
-            width: 100%; /* Added to make entire area clickable */
-            height: 100%; /* Added to make entire area clickable */
+            display: inline-block; /* Changed from inline-block to block */
         }
         
         nav a:hover {
@@ -188,7 +188,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            height: 350px;
+            height: 450px;
             cursor: pointer;
         }
         
