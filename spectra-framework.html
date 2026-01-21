@@ -281,8 +281,8 @@
 <body>
     <header>
         <div class="header-content">
-            <h1>Semantic Concept Perturbations for Explainable and Robust Classifiers</h1>
-            <p>Explainable AI Framework for Black-Box Models</p>
+            <h1>When Interpretability Becomes a Liability: Adversarial Attacks on Concept Bottleneck Models</h1>
+            <p>Concept-Level Adversarial Analysis and Robust Training for Interpretable Models</p>
             <a href="index.html#projects" class="nav-link">← Back to Portfolio</a>
         </div>
     </header>
@@ -291,51 +291,67 @@
         <section class="hero-section">
             <div class="hero-image">
                 <div class="hero-image-overlay">
-                    <div class="hero-image-text">Unveiling the Inner Workings of Black-Box Models</div>
+                    <div class="hero-image-text">
+                        Exposing and Defending the Hidden Attack Surface of Interpretable Models
+                    </div>
                 </div>
             </div>
+
             <p class="overview">
-                SPECTRA (Semantic Perturbation-Based Counterfactuals and Training for Robustness against Adversarial Attacks) is an innovative framework I designed for my Explainability in ML course to uncover the inner workings of black-box models. Driven by my curiosity about how image classifiers "understand" images, this framework generates semantically faithful counterfactuals by perturbing latent space activations. The approach significantly improves model interpretability while increasing prediction accuracy by over 15% and introducing novel metrics for measuring adversarial vulnerability.
+                <strong>When Interpretability Becomes a Liability</strong> presents the first systematic study of adversarial vulnerabilities in
+                Concept Bottleneck Models (CBMs), revealing that interpretability introduces a previously overlooked attack surface at the
+                concept layer itself. While CBMs provide human-understandable intermediate representations, minimal and semantically
+                meaningful perturbations to concept activations can induce catastrophic misclassification failures.
+                <br><br>
+                This work introduces a principled framework for concept-level adversarial attacks, deriving closed-form minimal-norm
+                perturbations in concept space and establishing rigorous robustness metrics to quantify semantic vulnerability. To address
+                these weaknesses, the paper proposes <strong>SPECTRA</strong> (Semantic Perturbation-based Concept Training for Robustness
+                against Adversarial Attacks), a stability-regularized training objective that dramatically increases the cost of successful
+                attacks while preserving classification performance.
+                <br><br>
+                Extensive evaluation on the CUB-200-2011 dataset demonstrates robustness improvements of up to <strong>7,600×</strong>
+                with less than <strong>0.22%</strong> accuracy degradation, establishing concept-level robustness as a critical design
+                consideration for interpretable machine learning systems.
             </p>
         </section>
 
         <div class="grid-container">
             <div class="card achievement-card">
-                <div class="card-header">Key Achievements</div>
+                <div class="card-header">Key Contributions</div>
                 <div class="card-body">
                     <ul>
-                        <li>Improved model prediction accuracy by over 15% through enhanced interpretability</li>
-                        <li>Developed semantically faithful counterfactual generation technique</li>
-                        <li>Introduced novel stability regularization to bolster classifier resilience against adversarial attacks</li>
-                        <li>Created the 'SPECTRA Attackability' metric to quantify adversarial vulnerability</li>
-                        <li>Established new methodologies for evaluating model robustness</li>
+                        <li>Identified and formalized a novel concept-level adversarial threat model for Concept Bottleneck Models</li>
+                        <li>Derived closed-form optimal adversarial perturbations in concept space using optimization theory</li>
+                        <li>Introduced the <em>SPECTRA Attackability</em> metric to quantify semantic robustness in interpretable models</li>
+                        <li>Proposed stability-regularized training achieving up to 7,600× reduction in attackability</li>
+                        <li>Demonstrated robustness gains on CUB-200-2011 (312 concepts, 15 classes) with ≤0.22% accuracy loss</li>
                     </ul>
                 </div>
             </div>
 
             <div class="card tech-card">
-                <div class="card-header">Technologies Used</div>
+                <div class="card-header">Techniques & Tools</div>
                 <div class="card-body">
                     <ul>
-                        <li>Latent space manipulation techniques</li>
-                        <li>Counterfactual explanation generation</li>
-                        <li>Adversarial training and testing frameworks</li>
-                        <li>Deep neural network architecture design</li>
-                        <li>Image classification and computer vision models</li>
-                        <li>Regularization methods for model robustness</li>
+                        <li>Concept Bottleneck Models (CBMs)</li>
+                        <li>Concept-space adversarial attacks</li>
+                        <li>Optimization theory and closed-form perturbation analysis</li>
+                        <li>Stability regularization and robustness-aware training</li>
+                        <li>Deep learning with ResNet backbones</li>
+                        <li>Computer vision and fine-grained image classification</li>
                     </ul>
                 </div>
             </div>
 
             <div class="card challenge-card">
-                <div class="card-header">Challenges Overcome</div>
+                <div class="card-header">Research Challenges Addressed</div>
                 <div class="card-body">
                     <ul>
-                        <li>Developing methods to interpret complex black-box image classifiers</li>
-                        <li>Creating counterfactuals that maintain semantic fidelity</li>
-                        <li>Balancing model performance with interpretability</li>
-                        <li>Quantifying adversarial vulnerability in meaningful ways</li>
-                        <li>Designing regularization techniques that increase robustness without degrading performance</li>
+                        <li>Characterizing adversarial vulnerability in low-dimensional, interpretable concept spaces</li>
+                        <li>Designing attacks that are both minimal and semantically meaningful</li>
+                        <li>Quantifying robustness beyond pixel-space perturbations</li>
+                        <li>Balancing robustness, interpretability, and classification performance</li>
+                        <li>Developing defenses with theoretical grounding and empirical validation</li>
                     </ul>
                 </div>
             </div>
@@ -346,23 +362,42 @@
             <div class="process-timeline">
                 <div class="timeline-item">
                     <h3>Problem Identification</h3>
-                    <p>Recognized the critical gap in understanding how black-box models, particularly image classifiers, make decisions and the need for greater transparency in AI systems.</p>
+                    <p>
+                        Identified a critical gap in adversarial robustness research: the absence of systematic analysis of attacks targeting
+                        interpretable concept representations in Concept Bottleneck Models.
+                    </p>
                 </div>
+
                 <div class="timeline-item">
-                    <h3>Framework Development</h3>
-                    <p>Designed the SPECTRA framework to generate semantically faithful counterfactuals by systematically perturbing latent space activations, providing insights into model decision boundaries.</p>
+                    <h3>Concept-Level Attack Formulation</h3>
+                    <p>
+                        Formalized concept-space adversarial attacks by analyzing the geometry of concept-to-class mappings and deriving
+                        minimal-norm perturbations for both linear and locally linearized classifiers.
+                    </p>
                 </div>
+
                 <div class="timeline-item">
-                    <h3>Stability Enhancement</h3>
-                    <p>Introduced a novel stability regularization term specifically engineered to bolster classifier resilience against adversarial attacks while maintaining performance on legitimate inputs.</p>
+                    <h3>Robustness Quantification</h3>
+                    <p>
+                        Developed comprehensive robustness metrics, including attackability scores and perturbation norms, enabling
+                        systematic comparison of CBMs under semantic adversarial threat models.
+                    </p>
                 </div>
+
                 <div class="timeline-item">
-                    <h3>Metric Creation</h3>
-                    <p>Developed the 'SPECTRA Attackability' metric to provide a standardized way of quantifying a model's vulnerability to adversarial examples, filling a significant gap in model evaluation techniques.</p>
+                    <h3>Defense via Stability Regularization</h3>
+                    <p>
+                        Introduced SPECTRA, a training-time stability regularization objective that increases the minimal perturbation required
+                        for successful attacks while maintaining classification accuracy.
+                    </p>
                 </div>
+
                 <div class="timeline-item">
-                    <h3>Validation & Results</h3>
-                    <p>Demonstrated significant improvements in both model interpretability and performance, achieving over 15% increase in prediction accuracy while simultaneously enhancing model robustness.</p>
+                    <h3>Empirical Validation</h3>
+                    <p>
+                        Evaluated attacks and defenses on the CUB-200-2011 dataset, revealing a sharp robustness phase transition and
+                        identifying optimal operating points for practical deployment.
+                    </p>
                 </div>
             </div>
         </section>
@@ -370,33 +405,38 @@
         <section class="skills-section">
             <h2>Skills Demonstrated</h2>
             <div class="skills-container">
-                <span class="skill-tag">Explainable AI</span>
-                <span class="skill-tag">Computer Vision</span>
+                <span class="skill-tag">Interpretable Machine Learning</span>
                 <span class="skill-tag">Adversarial Machine Learning</span>
+                <span class="skill-tag">Concept Bottleneck Models</span>
+                <span class="skill-tag">Optimization Theory</span>
+                <span class="skill-tag">Robustness Metrics</span>
+                <span class="skill-tag">Computer Vision</span>
                 <span class="skill-tag">Deep Learning</span>
-                <span class="skill-tag">Latent Space Manipulation</span>
-                <span class="skill-tag">Model Regularization</span>
-                <span class="skill-tag">Neural Network Architecture</span>
-                <span class="skill-tag">Framework Design</span>
+                <span class="skill-tag">Theoretical ML</span>
                 <span class="skill-tag">Research Methodology</span>
-                <span class="skill-tag">Technical Innovation</span>
             </div>
         </section>
 
         <section class="quote-section">
-            <p class="quote-text">"What excites me most is how this approach could be expanded to address challenges in AI fairness, security, and beyond, showcasing the vast potential of explainability to shape the future of AI systems."</p>
+            <p class="quote-text">
+                “Interpretability does not guarantee security — understanding and defending the semantic structure of models is essential
+                for deploying trustworthy AI systems.”
+            </p>
         </section>
     </div>
 
     <footer>
-        <p>Portfolio Project | Semantic Concept Perturbations for Explainable and Robust Classifiers | © 2025</p>
+        <p>
+            Research Project | When Interpretability Becomes a Liability: Adversarial Attacks on Concept Bottleneck Models | © 2025
+        </p>
     </footer>
 
     <script>
-        // You can add any JavaScript functionality here
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Page loaded successfully');
+            console.log('Project page loaded successfully');
         });
     </script>
 </body>
+
+
 </html>
